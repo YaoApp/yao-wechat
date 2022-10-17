@@ -1,0 +1,43 @@
+{
+  "name": "微信支付",
+  "version": "1.0.0",
+  "description": "微信支付功能",
+  "group": "pay",
+  "guard": "-",
+  "paths": [
+    {
+      "comment": "用于微信支付二维码生成",
+      "path": "/wechat",
+      "method": "POST",
+      "guard": "-",
+      "process": "scripts.pay.CreateCode",
+      "in": [":payload"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "comment": "用于微信支持成功回调函数",
+      "path": "/notify",
+      "method": "POST",
+      "process": "scripts.pay.Notify",
+      "in": [":body"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "comment": "用于微信域名认证接口",
+      "path": "/auth",
+      "method": "GET",
+      "process": "scripts.pay.GetAuth",
+      "in": [":query"],
+      "out": {
+        "status": 200,
+        "type": "text/plain"
+      }
+    }
+  ]
+}

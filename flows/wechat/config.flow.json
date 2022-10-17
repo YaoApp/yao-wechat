@@ -1,0 +1,21 @@
+{
+  "label": "微信配置",
+  "version": "1.0.0",
+  "description": "微信配置",
+  "nodes": [
+    {
+      "name": "配置",
+      "process": "xiang.helper.EnvMultiGet",
+      "args": [
+        "APP_ID",
+        "REDIRECT_URL",
+        "WECHAT_APPID",
+        "WECHAT_MECH_ID",
+        "WECHAT_MECH_KEY",
+        "WECHT_IP",
+        "WECHAT_NOTIFY_URL"
+      ]
+    }
+  ],
+  "output": "{{$res.配置}}"
+}

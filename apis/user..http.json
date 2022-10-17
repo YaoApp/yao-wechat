@@ -1,0 +1,40 @@
+{
+  "name": "微信网页授权功能",
+  "version": "1.0.0",
+  "description": "微信网页授权",
+  "group": "user",
+  "guard": "-",
+  "paths": [
+    {
+      "comment": "用于微信域名认证接口",
+      "path": "/auth",
+      "method": "GET",
+      "process": "scripts.pay.GetAuth",
+      "in": [":query"],
+      "out": {
+        "status": 200,
+        "type": "text/plain"
+      }
+    },
+    {
+      "path": "/redirect",
+      "method": "GET",
+      "process": "scripts.user.RedirectURI",
+      "in": [":query"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    },
+    {
+      "path": "/code",
+      "method": "GET",
+      "process": "scripts.user.Code",
+      "in": [":query"],
+      "out": {
+        "status": 200,
+        "type": "application/json"
+      }
+    }
+  ]
+}
